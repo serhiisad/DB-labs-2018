@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<developers>
+  <dev>
+    <fullname>Serhii Sadrytskyi</fullname>
+    <birth>03.03.1999</birth>
+    <married>False</married>
+  </dev>
+  <dev>
+    <fullname>Hermione Granger</fullname>
+    <birth>02.03.1999</birth>
+    <married>False</married>
+  </dev>
+   <dev>
+    <fullname>Joanne Rowling</fullname>
+    <birth>01.07.1989</birth>
+    <married>True</married>
+  </dev>
+    <dev>
+    <fullname>Tom Readdle</fullname>
+    <birth>04.08.1989</birth>
+    <married>False</married>
+  </dev>
+  <dev>
+    <fullname>Colin McGregor</fullname>
+    <birth>05.06.1957</birth>
+    <married>True</married>
+  </dev>
+   <dev>
+    <fullname>Jacob Ryan</fullname>
+    <birth>03.05.1967</birth>
+    <married>True</married>
+  </dev>
+    <dev>
+    <fullname>Harry McGuire</fullname>
+    <birth>07.07.1996</birth>
+    <married>False</married>
+  </dev>
+  <dev>
+    <fullname>Hoover Thomas</fullname>
+    <birth>04.07.1998</birth>
+    <married>True</married>
+  </dev>
+   <dev>
+    <fullname>Paul Smith</fullname>
+    <birth>09.09.1993</birth>
+    <married>True</married>
+  </dev>
+    <dev>
+    <fullname>Lindsey Potter</fullname>
+    <birth>28.06.1999</birth>
+    <married>True</married>
+  </dev>
+  <dev>
+    <fullname>Gary Clark</fullname>
+    <birth>04.06.1989</birth>
+    <married>True</married>
+  </dev>
+   <dev>
+    <fullname>Nina Bittencourt</fullname>
+    <birth>05.04.1979</birth>
+    <married>True</married>
+  </dev>
+</developers>
