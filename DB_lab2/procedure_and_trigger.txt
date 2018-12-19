@@ -1,0 +1,57 @@
+--Procedure
+-- changes marriage status of each developer and returns
+
+CREATE OR REPLACE FUNCTION switchMarriageStatusFlag() RETURNS SETOF developers AS
+$BODY$
+DECLARE
+    dev developers%rowtype;
+
+BEGIN
+    FOR dev IN SELECT * FROM developers
+    LOOP
+        IF dev.married = true THEN
+            dev.married = false;
+        ELSE
+            dev.married = true;
+        END IF;
+        RETURN NEXT dev;
+    END LOOP;
+    RETURN;
+END
+$BODY$
+LANGUAGE plpgsql;
+
+SELECT * FROM switchMarriageStatusFlag()
+
+###
+--TRIGGER function
+-- checking birth date of developers to be created or updated
+
+CREATE FUNCTION check_developer_age() RETURNS trigger AS $func$
+    BEGIN
+
+        IF (NEW.birth < '1969-01-01'::date) THEN
+            RAISE EXCEPTION 'TOO OLD person: choose another candidate';
+        END IF;
+
+        RETURN NEW;
+    END;
+$func$ LANGUAGE plpgsql;
+
+CREATE TRIGGER developer_change BEFORE INSERT OR UPDATE ON developers
+    FOR EACH ROW EXECUTE PROCEDURE check_developer_age();
+
+
+
+###
+
+SELECT * FROM developers;
+
+###
+
+INSERT INTO developers(fullname, birth, married) VALUES ('Vasya Rozhkov', '1999-08-07', True);
+
+UPDATE developers
+SET married = False WHERE fullname = 'Vasya Rozhkov';
+
+DELETE FROM developers WHERE fullname = 'Vasya Rozhkov'
