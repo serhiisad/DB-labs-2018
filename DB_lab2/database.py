@@ -30,6 +30,7 @@ class Database:
         self._session_.close()
 
 
+
     def get_developer(self, developer_id):
         return self._session_.query(DeveloperScheme).get(developer_id)
 
@@ -46,8 +47,60 @@ class Database:
     def delete_developer(self, developer_id):
         pass
 
-    def
 
 
-d = Database()
-print(d.)
+    def get_teamlead(self, teamlead_id):
+        pass
+
+    def insert_teamlead(self, teamlead_scheme: TeamLeadScheme):
+        pass
+
+    def delete_teamlead(self, teamlead_id):
+        pass
+
+    def update_teamlead(self, teamlead_scheme: TeamLeadScheme):
+        pass
+
+
+
+    def get_team(self, team_id):
+        pass
+
+    def insert_team(self, team_scheme: TeamScheme):
+        pass
+
+    def delete_team(self, team_id):
+        pass
+
+    def update_team(self, team_scheme: TeamScheme):
+        pass
+
+
+
+    def get_project(self, project_id):
+        pass
+
+    def insert_project(self, project_scheme: ProjectScheme):
+        pass
+
+    def delete_project(self, project_id):
+        pass
+
+    def update_project(self, project_scheme: ProjectScheme):
+        pass
+
+
+    def get_table_toString(self, table_name):
+        pass
+
+    def search_by_date(self, field_name, left_boundary, right_boundary):
+        pass
+
+    def search_by_bool(self, bool_value):
+        pass
+
+    def fulltext_search(self, tablename, fields, query):
+        pass
+
+
+db = Database()
