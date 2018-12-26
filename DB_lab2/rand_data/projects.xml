@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projects>
+    <project>
+        <title>Web Scrapper</title>
+        <type>web</type>
+    </project>
+    <project>
+        <title>Html parser</title>
+        <type>web</type>
+    </project>
+    <project>
+        <title>Node server</title>
+        <type>web</type>
+    </project>
+    <project>
+        <title>music player</title>
+        <type>desktop</type>
+    </project>
+    <project>
+        <title>Skype client</title>
+        <type>desktop</type>
+    </project>
+    <project>
+        <title>Calculator</title>
+        <type>desktop</type>
+    </project>
+    <project>
+        <title>DB shell client</title>
+        <type>console</type>
+    </project>
+    <project>
+        <title>git shell wrapper</title>
+        <type>console</type>
+    </project>
+    <project>
+        <title>console IDE</title>
+        <type>console</type>
+    </project>
+    <project>
+        <title>Crypto Wallet</title>
+        <type>web</type>
+    </project>
+    <project>
+        <title>Platformer</title>
+        <type>gamedev</type>
+    </project>
+    <project>
+        <title>Chasing-racing</title>
+        <type>gamedev</type>
+    </project>
+</projects>
