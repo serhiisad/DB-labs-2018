@@ -36,7 +36,8 @@ def random_fill_db(projects_cnt=4, teamleads_cnt=3, teams_cnt=3, devs_cnt=13):
 
     projects = parser.tolist_projects()
     for k in range(projects_cnt-1):
-        new_proj = ran
+        new_proj = random.choice(projects)
+        db.create_project(new_proj)
     for k in range(teamleads_cnt-1):
         new_tl = Teamlead(names.get_full_name())
         db.create_teamlead(new_tl)

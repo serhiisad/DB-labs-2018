@@ -19,3 +19,4 @@ class switch(object):
             self.fall = True
             return True
         return False
+

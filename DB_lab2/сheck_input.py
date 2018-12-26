@@ -28,3 +28,4 @@ class CheckInput:
     def check_developer_existence(developer_id):
         db = Database()
         return db.get_developer(developer_id) is not None
+
