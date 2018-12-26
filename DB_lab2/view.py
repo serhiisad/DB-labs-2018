@@ -1,13 +1,8 @@
-
 from entities.entities import *
 import randomize_db
-from datetime import *
 from database import Database
-import pandas
-
 db = Database()
 
-# data input methods
 def input_developer():
    params = input("type <fullname, birth-date, married(1,0)>:").split(",")
    return Developer(*params)
@@ -28,14 +23,10 @@ def input_teamid_and_projectid():
    params = input("type <team_id, project_id>:").split(" ")
    return {"team_id": params[0], "project_id": params[1]}
 
-#for search in range
 def input_dates_range():
-   # dates = input("enter dates to search between: ").split(" ")
    date1 = input("enter date1(in quotes): ")
    date2 = input("enter date2: ")
    return [date1, str(date2)]
-   # if date.strftime(date1, "yyyy-mm-dd") > date.strftime(date2, "yyyy-mm-dd"):
-   #    raise Exception("incorrect range")
 
 #for full text search
 def input_fulltextsearch_data():
@@ -74,9 +65,7 @@ def create():
    while True:
       print("-----Create-----")
       print_menu(entities_d)
-      #try:
       command = input("choose entity:")
-      #except ValueError: pass
       if command == 'q': break
       elif int(command) == 1:
          db.create_developer(input_developer())
@@ -147,27 +136,33 @@ def get():
          print_menu(tables_to_get_d)
          command = int(input("Choose a table to print: "))
       except ValueError: pass
-      if command == 1:
-         # print(pandas.read_sql(db.get_devs_teams_teamleads(), db.connection))
-         print(db.table_toString(db.get_devs_teams_teamleads()))
-         break
-      elif command == 2:
-         print(db.table_toString(db.get_teams_projects()))
-         break
-      elif command == 3:
-         print(db.table_toString(db.get_teams()))
-         break
-      elif command == 4:
-         print(db.table_toString(db.get_developers()))
-         break
-      elif command == 5:
-         print(db.table_toString(db.get_teamleads()))
-         break
-      elif command == 6:
-         print(db.table_toString(db.get_projects()))
-         break
-      elif str(command) == 'q': break
-      else:  pass
+      if str(command) != 'q':
+         print(db.get_table_toString(tables_to_get_d.get(command)))
+      else: break
+
+      # if command == 1:
+      #    # print(pandas.read_sql(db.get_devs_teams_teamleads(), db.connection))
+      #    # print(db.table_toString(db.get_devs_teams_teamleads()))
+      #
+      #    break
+      # elif command == 2:
+      #
+      #    break
+      # elif command == 3:
+      #    print(db.get_table_toString("teams"))
+      #    break
+      # elif command == 4:
+      #    print(db.get_table_toString("developers"))
+      #    break
+      # elif command == 5:
+      #    print(db.get_table_toString("teamleads"))
+      #    break
+      # elif command == 6:
+      #    print(db.get_table_toString("projects"))
+      #    break
+      # elif str(command) == 'q': break
+      # else:  pass
+
 
 
 def search():
@@ -185,7 +180,6 @@ def search():
          ismarried = input("input <True/False>: ")
          if(ismarried == "true"): ismarried = True
          else: ismarried = False
-         #print(str(ismarried))
          print(db.table_toString(db.search_for_married_devs(ismarried)))
          break
       else: pass
