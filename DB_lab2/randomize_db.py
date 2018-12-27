@@ -1,5 +1,4 @@
 import rand_data.parser as parser
-from database import Database as db
 from datetime import *
 import names
 import random

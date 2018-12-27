@@ -1,7 +1,5 @@
 import datetime
-
 from database import Database
-
 
 class CheckInput:
 

@@ -3,7 +3,6 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
-
 class DeveloperScheme(Base):
     __tablename__ = "developers"
 
@@ -14,16 +13,19 @@ class DeveloperScheme(Base):
     team_id = Column(Integer)
 
     def __init__(self,
-                 dev_id = "",
-                 dev_fullname = "no_name",
-                 dev_birth = "1984-01-01",
-                 married_status = "false",
-                 dev_team_id = "1"):
-        self.id = dev_id,
-        self.fullname = dev_fullname,
-        self.birth = dev_birth,
-        self.married = married_status,
-        self.team_id = dev_team_id
+                 dev_fullname,
+                 dev_birth,
+                 married_status
+                 ):
+
+        self.fullname = dev_fullname
+        self.birth = dev_birth
+        if married_status ==  'true':
+            married_status = True
+        else:
+            married_status = False
+        self.married = married_status
+        # self.team_id = dev_team_id
 
 class TeamLeadScheme(Base):
     __tablename__ = "teamleads"
@@ -32,9 +34,8 @@ class TeamLeadScheme(Base):
     fullname = Column(String)
 
     def __init__(self,
-                 tl_id = "1",
-                 tl_name = "No_name"):
-        self.id = tl_id,
+                 tl_name):
+        # self.id = tl_id
         self.fullname = tl_name
 
 
@@ -47,11 +48,9 @@ class TeamScheme(Base):
 
 
     def __init__(self,
-                 t_id = "1",
-                 t_teamlead_id = "1",
-                 t_name = "no_t_name"):
-        self.id = t_id
-        self.teamlead_id = t_teamlead_id
+                 t_name):
+        # self.id = t_id
+        # self.teamlead_id = t_teamlead_id
         self.team_name = t_name
 
 
@@ -64,11 +63,24 @@ class ProjectScheme(Base):
     status = Column(String)
 
     def __init__(self,
-                 p_id = "1",
+                 # p_id = "1",
                  p_title = "untitled",
                  p_type = "undef_type",
                  p_status = "init"):
-        self.id = p_id
+        # self.id = p_id
         self.title = p_title
         self.type = p_type
         self.status = p_status
+
+
+class TeamProjectScheme(Base):
+    __tablename__ = "team_project"
+
+    team_id = Column(Integer, primary_key=True)
+    project_id = Column(Integer, primary_key=True)
+
+    def __init__(self,
+                 team_id,
+                 project_id):
+        self.team_id = team_id
+        self.project_id = project_id
